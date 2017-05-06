@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta http-equiv="Content-Security-Policy" content="default-src *; script-src 'self' 'unsafe-inline' 'unsafe-eval' *; style-src  'self' 'unsafe-inline' *">
+    <meta charset="utf-8">
+    <meta name="viewport" content="initial-scale=1, maximum-scale=1, user-scalable=no, width=device-width">
+    <title></title>
+
+    <link rel="manifest" href="manifest.json">
+
+    <!-- un-comment this code to enable service worker
+    <script>
+      if ('serviceWorker' in navigator) {
+        navigator.serviceWorker.register('service-worker.js')
+          .then(() => console.log('service worker installed'))
+          .catch(err => console.log('Error', err));
+      }
+    </script>-->
+
+    <link href="lib/ionic/css/ionic.css" rel="stylesheet">
+    <link href="css/style.css" rel="stylesheet">
+
+    <!-- IF using Sass (run gulp sass first), then uncomment below and remove the CSS includes above
+    <link href="css/ionic.app.css" rel="stylesheet">
+    -->
+
+    <!-- ionic/angularjs js -->
+    <script src="lib/ionic/js/ionic.bundle.js"></script>
+
+    <!-- cordova script (this will be a 404 during development) -->
+
+    <script src="lib/ngCordova/dist/ng-cordova.js"></script>
+    <script src="cordova.js"></script>
+
+    <!-- your app's js -->
+    <script src="js/app.js"></script>
+    <script src="js/controllers.js"></script>
+    <script src="js/services.js"></script>
+  </head>
+  <body ng-app="starter">
+    <!--
+      The nav bar that will be updated as we navigate between views.
+    -->
+
+    <ion-side-menus >
+     
+    <ion-side-menu-content ng-controller="prueba">
+      <ion-nav-bar class="bar-positive">
+            <ion-nav-back-button class="button">
+            </ion-nav-back-button>
+
+            <ion-nav-buttons side="right">
+              <button class="button button-icon button-clear ion-gear-a" ng-click="uno()">
+              </button>
+            </ion-nav-buttons>
+          </ion-nav-bar>
+          <ion-nav-view animation="slide-left-right"></ion-nav-view>    
+    </ion-side-menu-content>
+
+        <ion-side-menu side="right">
+          <ion-header-bar class="bar bar-header bar-dark">
+            <h1 class="title">Right Menu</h1>
+          </ion-header-bar>
+          <ion-content>
+            <ul class="list">
+              <li>
+                <a class="item" menu-close nav-clear href="#/configuracion">Configuracion</a>
+              </li>
+              <li>
+                <a class="item" menu-close nav-clear href="#/borrar">Borrar estadisticas</a>
+              </li>
+              <li>
+                <a class="item" menu-close nav-clear href="#/salir">Salir</a>
+              </li>
+            </ul>
+          </ion-content>
+        </ion-side-menu>
+    
+    </ion-side-menus>
+         
+      
+    <!--
+      The views will be rendered in the <ion-nav-view> directive below
+      Templates are in the /templates folder (but you could also
+      have templates inline in this html file if you'd like).
+    -->
+
+  
+    <script src="https://maps-api-ssl.google.com/maps/api/js?libraries=places"></script>    
+  </body>
+</html>
