@@ -2,18 +2,19 @@ angular.module('starter.controllers', [])
 
 .controller('ciegoctrl', function($scope) {
     $scope.data = {
-    speechText: 'hello world'
+    speechText: 'hola mundo'
   };
   $scope.recognizedText = '';
  
   $scope.speakText = function() {
-    alert("hola mundo ");
-    TTS.speak({
+    alert("hola");
+    window.TTS.speak({
            text: $scope.data.speechText,
-           locale: 'es-GB',
+           locale: 'en-GB',
            rate: 1.5
        }, function () {
-
+           // Do Something after success
+           alert("entro");
        }, function (reason) {
            alert(reason);
        });
