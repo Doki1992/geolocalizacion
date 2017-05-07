@@ -7,18 +7,15 @@ angular.module('starter.controllers', [])
   $scope.recognizedText = '';
  
   $scope.speakText = function() {
-    alert("hola");
-    window.TTS.speak({
-           text: $scope.data.speechText,
-           locale: 'en-GB',
-           rate: 1.5
-       }, function () {
-           // Do Something after success
-           alert("entro");
-       }, function (reason) {
-           alert(reason);
-       });
+    //alert("hola");        
+    TTS.speak('hello, world!', function () {
+        alert('success');
+    }, function (reason) {
+        alert(reason);
+    });
+
   };
+  
 
 })
 
