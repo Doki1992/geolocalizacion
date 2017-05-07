@@ -39,6 +39,7 @@ angular.module('starter.controllers', [])
 
 .controller('addcontact', function($scope, $http, $sce){
   $scope.contacto = {
+    operacion: 0,
     nombre: '',
     numero: ''
   }
@@ -62,6 +63,7 @@ angular.module('starter.controllers', [])
   };
 
   $scope.deleteC=function(){
+    $scope.contacto.operacion = 1;
     alert("se borrara el contacto");
   };
 
