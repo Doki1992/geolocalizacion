@@ -37,9 +37,28 @@ angular.module('starter.controllers', [])
  };
 })
 
-.controller('addcontact', function($scope){
+.controller('addcontact', function($scope, $http, $sce){
+  $scope.contacto = {
+    nombre: '',
+    numero: ''
+  }
+  var defaultHTTPHeaders = {
+    'Content-type':'json',
+    'Accept':'application/json'
+  }
+  $http.defaults.headers.post = defaultHTTPHeaders;
   $scope.addc = function(){
-    alert($scope.nombre+" "+$scope.telefono);
+    var url =  'http://grupo19.esy.es/'
+    var postUrl = $sce.trustAsResourceUrl(url);
+    $http.post(url,$scope.contacto)
+    .then( 
+      function(response){
+        alert(response.data);
+      },
+      function(){
+        alert('error');
+      });
+    
   };
 
   $scope.deleteC=function(){
